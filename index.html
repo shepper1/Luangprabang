@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luang Prabang : Éveil Spirituel au Cœur du Mékong </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        template: {
+                            sable: '#F3E5AB',
+                            ocre: '#C66B3D',
+                            roche: '#2D2A26',
+                            ciel: '#4A6C6F',
+                            bg: '#FAFAF9'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #C66B3D;
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">Luang Prabang : Éveil Spirituel au Cœur du Mékong</a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Envol vers l'Asie du Sud-Est</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Douce arrivée à Luang Prabang</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Traditions et Patrimoine Royal</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Évasion aux Chutes de Kuang Si</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Croisière sur le Mékong et Grottes Sacrées</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Immersion Culinaire et Marché Nocturne</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Coucher de Soleil sur la Ville et Héritage Ethnique</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Harmonie avec les Géants Doux</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 L'Art du Tissage et la Vie Villageoise</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Journée Libre et Sérénité</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Souvenirs et Douceurs d'Adieu</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Retour vers Paris</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[85vh] flex items-center justify-center overflow-hidden pt-12 md:pt-0">
+        
+        <div class="absolute inset-0 bg-black/50 z-10"></div>
+
+        <video autoplay muted loop playsinline 
+               poster="https://images.unsplash.com/photo-1579606946838-6db34433f3c0?q=80&w=2070"
+               class="absolute inset-0 w-full h-full object-cover">
+            <source src="https://videos.pexels.com/video-files/4456988/4456988-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Votre navigateur ne supporte pas la vidéo.
+        </video>
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.3em] mb-4 uppercase text-sm font-semibold">Feuille de Route</p>
+            <h1 class="font-Playfair italic text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">Luang Prabang</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-light max-w-2xl mx-auto leading-relaxed">Luang Prabang : Éveil Spirituel au Cœur du Mékong</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">🗓️ 12 jours</span>
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">💰 2800€ / pers</span>
+                <span class="bg-white/10 backdrop-blur-md px-5 py-2 rounded-full border border-white/20 shadow-sm">🛬 18-20 heures (avec escale) depuis Paris</span>
+            </div>
+
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-20 relative">
+        
+        <div class="text-center mb-16">
+            <span class="text-template-ocre font-bold tracking-widest text-xs uppercase">Le Roadtrip</span>
+            <h2 class="font-serif text-4xl mt-2 text-template-roche">Votre Programme</h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Envol vers l'Asie du Sud-Est</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Un long voyage s'annonce, mais l'excitation de découvrir Luang Prabang, perle du Laos, rendra l'attente plus douce. Préparez-vous à une immersion culturelle et spirituelle inoubliable, loin du tumulte parisien. Ce périple promet des découvertes fascinantes et des rencontres authentiques.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>✈️ <strong>Départ de Paris</strong>: Enregistrement et embarquement pour votre vol international vers Luang Prabang, souvent avec une escale, marquant le début de votre aventure laotienne.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/vol.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ Préparation</p>
+                                <p class="text-gray-700">Prévoyez un adaptateur universel (prises de type A, B, C, F, G). Le visa est obligatoire pour les citoyens français, il peut être obtenu à l'arrivée (Visa on Arrival).</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Douce arrivée à Luang Prabang</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un long voyage, la sérénité de Luang Prabang vous accueille avec sa douceur. Prenez le temps de vous installer et de vous imprégner de l'atmosphère paisible de cette ville classée au patrimoine mondial de l'UNESCO. Une première balade le long du Mékong sera parfaite pour débuter en douceur.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛬 <strong>Arrivée et installation</strong>: Atterrissage à l'aéroport de Luang Prabang, transfert vers votre hébergement et installation pour vous reposer et vous acclimater.</li>
+                            
+                                <li>🚶‍♂️ <strong>Balade le long du Mékong</strong>: Une promenade tranquille sur les rives du Mékong pour sentir l'ambiance locale et admirer le coucher de soleil sur le fleuve, un spectacle apaisant.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/luangprabang_mekong_sunset.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Hydratez-vous bien après le vol. Les températures peuvent être élevées, surtout en journée, privilégiez des vêtements légers.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Monnaie</p>
+                                <p class="text-gray-700">La monnaie locale est le Kip laotien (LAK). Prévoyez des petites coupures pour les marchés et les tuk-tuks, et des dollars américains pour le visa.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Traditions et Patrimoine Royal</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Imprégnez-vous de la spiritualité matinale de Luang Prabang en assistant à la cérémonie des aumônes, un moment de grâce. Explorez ensuite les trésors architecturaux et historiques de la ville, témoins de son riche passé royal et bouddhiste. Une journée riche en découvertes culturelles vous attend.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🙏 <strong>Cérémonie des aumônes (Tak Bat)</strong>: Assistez au rituel matinal où les moines collectent leurs offrandes, un moment de recueillement profond et respectueux à observer en silence.</li>
+                            
+                                <li>🏛️ <strong>Visite du Palais Royal (Musée National)</strong>: Découvrez l'ancienne résidence royale, transformée en musée, abritant des artefacts précieux et le Prabang, la statue de Bouddha qui a donné son nom à la ville.</li>
+                            
+                                <li>✨ <strong>Exploration du Wat Xieng Thong</strong>: Admirez ce temple emblématique, chef-d'œuvre de l'architecture laotienne, avec ses toits superposés et ses mosaïques scintillantes, un incontournable.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/luangprabang_takbat_watxiengthong.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤫 Respect</p>
+                                <p class="text-gray-700">Pour la cérémonie des aumônes, observez à distance, habillez-vous modestement et ne perturbez pas les moines avec des flashs ou des bruits.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photographie</p>
+                                <p class="text-gray-700">Demandez toujours la permission avant de photographier les habitants, surtout dans les zones rurales, par respect pour leur intimité.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Évasion aux Chutes de Kuang Si</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Laissez-vous émerveiller par la beauté turquoise des chutes de Kuang Si, un véritable paradis naturel niché dans la jungle luxuriante. Profitez d'une baignade rafraîchissante dans ses piscines naturelles et soutenez la conservation des ours noirs d'Asie au sanctuaire adjacent. Une journée de pure évasion et de nature.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>💦 <strong>Baignade aux Chutes de Kuang Si</strong>: Plongez dans les piscines naturelles d'eau turquoise et explorez les différentes cascades de ce site spectaculaire, idéal pour se rafraîchir.</li>
+                            
+                                <li>🐻 <strong>Visite du Centre de Sauvetage des Ours</strong>: Rencontrez les ours noirs d'Asie sauvés du braconnage et apprenez-en plus sur les efforts de conservation de Free the Bears, une initiative louable.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/kuangsi_falls.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🩱 Équipement</p>
+                                <p class="text-gray-700">N'oubliez pas votre maillot de bain et une serviette pour profiter pleinement des chutes. Des cabines sont disponibles pour se changer.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👟 Chaussures</p>
+                                <p class="text-gray-700">Prévoyez des chaussures confortables pour marcher sur les sentiers parfois glissants autour des chutes et pour la petite randonnée.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Croisière sur le Mékong et Grottes Sacrées</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Embarquez pour une croisière paisible sur le majestueux Mékong, découvrant la vie fluviale et les paysages luxuriants qui bordent ses rives. Atteignez les mystérieuses grottes de Pak Ou, sanctuaires bouddhistes abritant des milliers de statues, témoins d'une foi ancestrale. Une immersion profonde dans la culture laotienne.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🚢 <strong>Croisière sur le Mékong</strong>: Naviguez sur le fleuve sacré, observant les villages de pêcheurs et la vie quotidienne le long des rives, une expérience authentique et relaxante.</li>
+                            
+                                <li>🗿 <strong>Exploration des Grottes de Pak Ou</strong>: Découvrez ces grottes calcaires sacrées, remplies de milliers de statuettes de Bouddha laissées par les pèlerins au fil des siècles, un site spirituel unique.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/pakou_caves_mekong.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Protection</p>
+                                <p class="text-gray-700">N'oubliez pas chapeau, lunettes de soleil et crème solaire pour la croisière sur le Mékong, le soleil peut être intense.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🔦 Lumière</p>
+                                <p class="text-gray-700">Les grottes peuvent être sombres, une petite lampe de poche ou la fonction torche de votre téléphone peut être utile pour mieux voir les statues.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Immersion Culinaire et Marché Nocturne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de la gastronomie laotienne avec un cours de cuisine interactif, apprenant les secrets des saveurs locales et des épices exotiques. Terminez la journée en flânant au marché de nuit, un kaléidoscope d'artisanat et de délices culinaires, pour une soirée haute en couleurs et en saveurs.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🧑‍🍳 <strong>Cours de cuisine laotienne</strong>: Apprenez à préparer des plats traditionnels comme le Laap ou le Mok Pa, et savourez vos créations pour le déjeuner, une expérience gourmande et éducative.</li>
+                            
+                                <li>🛍️ <strong>Flânerie au marché de nuit</strong>: Explorez les étals colorés du marché de nuit, idéal pour trouver des souvenirs artisanaux uniques et goûter à la street food locale, une ambiance vibrante.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/luangprabang_cooking_market.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌶️ Goût</p>
+                                <p class="text-gray-700">La cuisine laotienne est souvent épicée, n'hésitez pas à demander 'mai phet' (pas épicé) si vous êtes sensible aux saveurs fortes.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤝 Négociation</p>
+                                <p class="text-gray-700">Au marché de nuit, la négociation est courante et fait partie de l'expérience, mais toujours avec le sourire et respect.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Coucher de Soleil sur la Ville et Héritage Ethnique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Gravissez le Mont Phousi pour un panorama époustouflant sur Luang Prabang et le Mékong au coucher du soleil, un spectacle inoubliable. Ensuite, plongez dans la richesse des cultures ethniques laotiennes au Centre des Arts Traditionnels et d'Ethnologie, pour une compréhension approfondie du pays. Une journée entre nature et culture.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🌅 <strong>Coucher de soleil au Mont Phousi</strong>: Montez les 328 marches jusqu'au sommet du Mont Phousi pour une vue panoramique inoubliable sur la ville et les fleuves, un moment magique.</li>
+                            
+                                <li>🎨 <strong>Visite du TAEC (Traditional Arts and Ethnology Centre)</strong>: Découvrez les traditions, les costumes et l'artisanat des diverses ethnies du Laos, un lieu essentiel pour comprendre la diversité culturelle du pays.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/mount_phousi_sunset_taec.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Accès</p>
+                                <p class="text-gray-700">La montée au Mont Phousi est raide, prévoyez de l'eau et des chaussures confortables. Le sommet peut être très fréquenté au coucher du soleil.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📚 Apprentissage</p>
+                                <p class="text-gray-700">Le TAEC est un musée privé qui soutient les communautés locales, une visite enrichissante et utile pour le développement durable.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Harmonie avec les Géants Doux</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Vivez une expérience inoubliable et respectueuse en compagnie des éléphants, ces géants doux de l'Asie. Participez à leur bien-être dans un sanctuaire éthique, loin des pratiques touristiques controversées, et apprenez-en davantage sur ces magnifiques créatures et leur conservation. Une journée pleine d'émotion et de sens.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🐘 <strong>Journée au sanctuaire d'éléphants</strong>: Interagissez avec les éléphants de manière éthique, participez à leur bain et à leur alimentation, tout en apprenant sur leur conservation et leur histoire.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/elephant_sanctuary.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💚 Éthique</p>
+                                <p class="text-gray-700">Choisissez toujours des sanctuaires qui ne proposent pas de balades à dos d'éléphant et privilégient leur bien-être et leur réhabilitation.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👕 Vêtements</p>
+                                <p class="text-gray-700">Prévoyez des vêtements qui ne craignent pas d'être mouillés ou salis lors des interactions avec les éléphants, ainsi qu'un maillot de bain.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">L'Art du Tissage et la Vie Villageoise</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez l'art ancestral du tissage laotien à Ock Pop Tok, un centre qui promeut l'artisanat local et le commerce équitable. Poursuivez votre immersion en visitant un village traditionnel pour observer le quotidien des habitants et leurs savoir-faire, une rencontre authentique avec la culture rurale. Une journée dédiée à l'artisanat et aux traditions.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🧶 <strong>Visite d'Ock Pop Tok</strong>: Découvrez les techniques de tissage traditionnelles, les teintures naturelles et l'engagement de ce centre pour le commerce équitable, un lieu inspirant.</li>
+                            
+                                <li>🏡 <strong>Découverte d'un village local</strong>: Rendez-vous dans un village aux alentours de Luang Prabang pour observer la vie rurale, les cultures et l'artisanat local, une immersion culturelle.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/ockpoptok_village.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🤝 Soutien</p>
+                                <p class="text-gray-700">Acheter directement auprès des artisans ou dans des centres comme Ock Pop Tok soutient l'économie locale et préserve les savoir-faire traditionnels.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🙏 Politesse</p>
+                                <p class="text-gray-700">Dans les villages, saluez les habitants avec un 'Sabaidee' et demandez la permission avant de prendre des photos, par respect.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Journée Libre et Sérénité</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de cette journée pour vous détendre, revisiter vos lieux préférés ou explorer Luang Prabang à votre rythme, sans contrainte. Louez un vélo pour une balade tranquille, savourez un café au bord du Mékong ou offrez-vous un massage traditionnel laotien. Une pause bienvenue pour recharger les batteries.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🚲 <strong>Balade à vélo ou détente</strong>: Louez un vélo pour explorer les ruelles calmes de la ville ou profitez d'un moment de relaxation dans un café ou un spa, selon vos envies.</li>
+                            
+                                <li>🍜 <strong>Dégustation de spécialités locales</strong>: Profitez-en pour essayer un restaurant que vous n'avez pas encore eu le temps de visiter ou revisiter un coup de cœur culinaire.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/luangprabang_bike_cafe.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💆‍♀️ Bien-être</p>
+                                <p class="text-gray-700">Un massage laotien est une excellente façon de se détendre après plusieurs jours d'activités, une expérience apaisante pour le corps et l'esprit.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗺️ Orientation</p>
+                                <p class="text-gray-700">La ville est petite et facile à explorer à pied ou à vélo, n'hésitez pas à vous perdre dans ses charmes et ses recoins cachés.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Souvenirs et Douceurs d'Adieu</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez de vos dernières heures à Luang Prabang pour faire quelques emplettes de dernière minute, dénicher des trésors artisanaux. Savourez un dernier repas laotien, imprégnez-vous une dernière fois de l'atmosphère unique de cette ville envoûtante. Une journée pour graver les derniers souvenirs avant le départ.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🎁 <strong>Achats de souvenirs</strong>: Flânez dans les boutiques d'artisanat ou au marché du matin pour trouver les derniers cadeaux et souvenirs à rapporter de votre voyage.</li>
+                            
+                                <li>🍽️ <strong>Dernier repas laotien</strong>: Savourez un dernier festin de saveurs locales dans l'un des charmants restaurants de la ville, pour un adieu gourmand.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/luangprabang_souvenirs_food.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Bagages</p>
+                                <p class="text-gray-700">Pensez à vérifier le poids de vos bagages avant le départ pour éviter les surprises à l'aéroport. Gardez de la place pour vos souvenirs.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Pourboires</p>
+                                <p class="text-gray-700">Les pourboires ne sont pas obligatoires mais toujours appréciés pour un bon service dans les restaurants ou pour les guides locaux.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Retour vers Paris</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Il est temps de quitter Luang Prabang, mais les souvenirs de ses temples dorés, de ses paysages verdoyants et de la gentillesse de ses habitants resteront gravés. Un voyage riche en découvertes et en émotions s'achève, vous laissant des images et des sensations inoubliables. Bon retour !</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left">
+                            
+                                <li>🛫 <strong>Transfert et vol retour</strong>: Transfert vers l'aéroport de Luang Prabang pour votre vol de retour vers Paris, la tête pleine de merveilleux souvenirs et d'expériences uniques.</li>
+                            
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/shepper1/Luangprabang/main/departure.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✅ Formalités</p>
+                                <p class="text-gray-700">Assurez-vous d'avoir tous vos documents de voyage (passeport, billets d'avion, visa) à portée de main pour un départ serein.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+    </section>
+
+    <footer id="pratique" class="bg-white border-t border-gray-200 pt-16 pb-10 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 mb-12">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed">Les périodes idéales pour ce séjour sont les mois de novembre à mars, offrant un climat sec et des températures agréables pour l'exploration.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2">
+                    <span>🧳</span> À savoir
+                </h4>
+                <ul class="text-sm text-gray-600 space-y-3">
+
+                        <li><strong>🛂 :</strong> Le visa est obligatoire pour les citoyens français. Il peut être obtenu à l'arrivée (Visa on Arrival) à l'aéroport de Luang Prabang pour environ 30-40 USD.</li>
+                    
+                        <li><strong>💰 :</strong> La monnaie locale est le Kip laotien (LAK). Les distributeurs sont disponibles en ville. Prévoyez des petites coupures pour les marchés et les petits commerces.</li>
+                    
+                        <li><strong>🗣️ :</strong> La langue officielle est le lao. Quelques mots de base comme 'Sabaidee' (bonjour) ou 'Khop Jai' (merci) seront très appréciés par les habitants.</li>
+                    
+                        <li><strong>🙏 :</strong> Le Laos est un pays bouddhiste. Habillez-vous modestement, surtout lors des visites de temples (épaules et genoux couverts) par respect pour la culture locale.</li>
+                    
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2"><span>🔗</span> Liens Utiles</h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://shepper1.github.io/Luangprabang/map.html" target="_blank" class="hover:underline flex items-center gap-2"><strong>🗺️ Carte</strong></a></li>
+                    
+                        <li><a href="https://www.tourismlaos.org/" target="_blank" class="hover:underline flex items-center gap-2"><strong>📘 Tourisme Laos</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/la/luang-prabang/203417/weather-forecast/203417" target="_blank" class="hover:underline flex items-center gap-2"><strong>🌤️ Météo Luang Prabang</strong></a></li>
+                    
+                        <li><a href="https://www.ambassadelaos.fr/" target="_blank" class="hover:underline flex items-center gap-2"><strong>🛂 Ambassade du Laos en France</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="text-center border-t border-gray-100 pt-8">
+            <p class="font-serif text-2xl text-template-roche mb-2">Luangprabang</p>
+            <p class="text-xs text-gray-400">© 2025 - Roadmap</p>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Gestion de l'affichage du menu au scroll
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+
+        // 2. Détection de l'étape active
+        const observerOptions = {
+            root: null,
+            rootMargin: '-40% 0px -60% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+
+                    document.querySelectorAll('.nav-item-desktop').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (activeId.includes('jour') && linkHref === 'jour-1') {
+                            link.classList.add('text-template-ocre');
+                        } else if (activeId === 'pratique' && linkHref === 'pratique') {
+                            link.classList.add('text-template-ocre');
+                        } else {
+                            link.classList.remove('text-template-ocre');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('div[id^="jour-"], footer#pratique').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
